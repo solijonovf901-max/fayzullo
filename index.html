@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SMM Panel</title>
+	<style>
+		body { font-family: Arial, sans-serif; background: #f4f7f6; margin: 0; padding: 20px; display: flex; justify-content: center; }
+		.card { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 100%; max-width: 450px; }
+		h2 { color: #333; margin-bottom: 20px; text-align: center; }
+		label { font-weight: bold; display: block; margin-top: 12px; color: #555; }
+		input, select, button { width: 100%; padding: 12px; margin-top: 6px; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box; }
+		button { background: #28a745; color: white; font-weight: bold; border: none; cursor: pointer; margin-top: 20px; }
+		button:hover { background: #218838; }
+		.status { margin-top: 15px; padding: 10px; border-radius: 6px; display: none; text-align: center; }
+		.success { background: #d4edda; color: #155724; }
+	</style>
+</head>
+<body>
+	<div class="card">
+		<h2>🚀 SMM Panel Xizmati</h2>
+        
+		<label>Ijtimoiy tarmoq:</label>
+		<select id="service">
+			<option>Instagram - Obunachilar (Followers)</option>
+			<option>Instagram - Layklar (Likes)</option>
+			<option>Telegram - A'zolar (Members)</option>
+			<option>TikTok - Ko'rishlar (Views)</option>
+		</select>
+
+		<label>Profil / Kanal havolasi (Link):</label>
+		<input type="text" id="link" placeholder="https://instagram.com/username">
+
+		<label>Soni (Soni/Quantity):</label>
+		<input type="number" id="quantity" placeholder="1000">
+
+		<label>API Key (Ixtiyoriy):</label>
+		<input type="text" id="apikey" value="demo123">
+
+		<button onclick="sendOrder()">Buyurtma berish</button>
+
+		<div id="status" class="status success"></div>
+	</div>
+
+	<script>
+		function sendOrder() {
+			const link = document.getElementById('link').value;
+			const quantity = document.getElementById('quantity').value;
+			const status = document.getElementById('status');
+
+			if(!link || !quantity) {
+				alert('Iltimos, havola va sonini kiriting!');
+				return;
+			}
+
+			status.style.display = 'block';
+			status.innerText = '✅ Buyurtmangiz qabul qilindi! Simulyatsiya muvaffaqiyatli bajarildi.';
+		}
+	</script>
+</body>
+</html>
+
